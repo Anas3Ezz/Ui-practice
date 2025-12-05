@@ -1,4 +1,6 @@
+import 'package:eraa_projects/widgets/age_and_weight_container.dart';
 import 'package:eraa_projects/widgets/gender_container.dart';
+import 'package:eraa_projects/widgets/height_container.dart';
 import 'package:flutter/material.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -27,60 +29,28 @@ class _HomeScreenState extends State<HomeScreen> {
                   GenderContainer(icon: Icons.female, text: 'Female'),
                 ])),
             const SizedBox(height: 15),
-            Container(
-              padding: const EdgeInsets.symmetric(vertical: 25, horizontal: 20),
-              decoration: BoxDecoration(
-                color: const Color(0xff333244),
-                borderRadius: BorderRadius.circular(12),
-              ),
-              child: Column(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  const Text(
-                    'Height',
-                    style: TextStyle(
-                      color: Color(0xff8B8C9E),
-                      fontSize: 20,
-                      fontWeight: FontWeight.w400,
-                    ),
-                  ),
-                  const SizedBox(height: 15),
-                  const Text.rich(
-                    TextSpan(
-                      children: [
-                        TextSpan(
-                          text: '150',
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 40,
-                            fontWeight: FontWeight.w700,
-                          ),
-                        ),
-                        TextSpan(
-                          text: ' cm',
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 18,
-                            fontWeight: FontWeight.w500,
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                  const SizedBox(height: 10),
-                  Slider(
-                    min: 0,
-                    value: currentSliderValue,
-                    max: 100,
-                    onChanged: (value) {
-                      setState(() {
-                        currentSliderValue = value;
-                      });
-                    },
-                  ),
-                ],
-              ),
-            )
+            HeightContainer(
+                value: currentSliderValue,
+                onChanged: (value) {
+                  setState(() {
+                    currentSliderValue = value;
+                  });
+                }),
+            const SizedBox(height: 20),
+            const Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                AgeAndWeightContainer(
+                  text: 'Weight',
+                  age: '60',
+                ),
+                SizedBox(width: 12),
+                AgeAndWeightContainer(
+                  text: 'Weight',
+                  age: '60',
+                ),
+              ],
+            ),
           ],
         ),
       ),
