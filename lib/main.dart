@@ -1,5 +1,5 @@
-import 'package:eraa_projects/view/home.dart';
-import 'package:eraa_projects/view/main_screen.dart';
+import 'package:eraa_projects/home_screen.dart';
+
 import 'package:flutter/material.dart';
 
 void main() {
@@ -13,12 +13,12 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      theme: ThemeData.light().copyWith(
+      theme: ThemeData.dark().copyWith(
         scaffoldBackgroundColor: Colors.white,
-        colorScheme: const ColorScheme.light(primary: Colors.lightBlueAccent),
+        colorScheme: const ColorScheme.light(primary: Color(0xff24263B)),
       ),
       debugShowCheckedModeBanner: false,
-      home: const MainScreen(),
+      home: const HomeScreen(),
     );
   }
 }
