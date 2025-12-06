@@ -11,6 +11,8 @@ class HomeScreen extends StatefulWidget {
   State<HomeScreen> createState() => _HomeScreenState();
 }
 
+bool isMale = true;
+
 class _HomeScreenState extends State<HomeScreen> {
   double currentSliderValue = 50;
   @override
@@ -21,13 +23,31 @@ class _HomeScreenState extends State<HomeScreen> {
         padding: const EdgeInsets.symmetric(horizontal: 20.0),
         child: Column(
           children: [
-            const Padding(
-                padding: EdgeInsets.symmetric(vertical: 20),
+            Padding(
+                padding: const EdgeInsets.symmetric(vertical: 20),
                 child:
                     Row(mainAxisAlignment: MainAxisAlignment.center, children: [
-                  GenderContainer(icon: Icons.male, text: 'Male'),
-                  SizedBox(width: 9),
-                  GenderContainer(icon: Icons.female, text: 'Female'),
+                  GenderContainer(
+                    onTap: () {
+                      setState(() {
+                        isMale = !isMale;
+                      });
+                    },
+                    icon: Icons.male,
+                    text: 'Male',
+                    isActive: isMale,
+                  ),
+                  const SizedBox(width: 9),
+                  GenderContainer(
+                    onTap: () {
+                      setState(() {
+                        isMale = !isMale;
+                      });
+                    },
+                    icon: Icons.female,
+                    text: 'Female',
+                    isActive: !isMale,
+                  ),
                 ])),
             const SizedBox(height: 15),
             HeightContainer(

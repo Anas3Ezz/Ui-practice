@@ -5,30 +5,38 @@ class GenderContainer extends StatelessWidget {
     super.key,
     required this.icon,
     required this.text,
+    required this.isActive,
+    required this.onTap,
   });
   final IconData icon;
   final String text;
+  final bool isActive;
+  final void Function() onTap;
+
   @override
   Widget build(BuildContext context) {
-    return Container(
-      padding: const EdgeInsets.only(left: 6, right: 6, top: 0, bottom: 19),
-      decoration: BoxDecoration(
-          color: const Color(0xff24263B),
-          borderRadius: BorderRadius.circular(12)),
-      child: Column(
-        children: [
-          Icon(
-            icon,
-            size: 160,
-          ),
-          Text(
-            text,
-            style: const TextStyle(
-                color: Color(0xff8B8C9E),
-                fontSize: 20,
-                fontWeight: FontWeight.w400),
-          )
-        ],
+    return InkWell(
+      onTap: onTap,
+      child: Container(
+        padding: const EdgeInsets.only(left: 6, right: 6, top: 0, bottom: 19),
+        decoration: BoxDecoration(
+            color: isActive ? Colors.pink : const Color(0xff24263B),
+            borderRadius: BorderRadius.circular(12)),
+        child: Column(
+          children: [
+            Icon(
+              icon,
+              size: 160,
+            ),
+            Text(
+              text,
+              style: const TextStyle(
+                  color: Color(0xff8B8C9E),
+                  fontSize: 20,
+                  fontWeight: FontWeight.w400),
+            )
+          ],
+        ),
       ),
     );
   }
