@@ -1,3 +1,4 @@
+import 'package:eraa_projects/result_screen.dart';
 import 'package:flutter/material.dart';
 
 class CalculateButton extends StatelessWidget {
@@ -19,7 +20,13 @@ class CalculateButton extends StatelessWidget {
             padding: const EdgeInsets.symmetric(
                 horizontal: 50, vertical: 20), // Adjust size
           ),
-          onPressed: () {},
+          onPressed: () {
+            Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => const ResultScreen(),
+                ));
+          },
           child: const Text(
             'Calculate',
             style: TextStyle(fontWeight: FontWeight.w600, fontSize: 25),
