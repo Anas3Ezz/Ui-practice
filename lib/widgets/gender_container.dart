@@ -17,10 +17,11 @@ class GenderContainer extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: onTap,
+      borderRadius: BorderRadius.circular(12),
       child: Container(
-        padding: const EdgeInsets.only(left: 6, right: 6, top: 0, bottom: 19),
+        padding:   const EdgeInsets.only(left: 6, right: 6, top: 0, bottom: 19),
         decoration: BoxDecoration(
-            color: isActive ? Colors.pink : const Color(0xff24263B),
+            color: isActive ? Colors.pink :   const Color(0xff24263B),
             borderRadius: BorderRadius.circular(12)),
         child: Column(
           children: [
@@ -30,7 +31,7 @@ class GenderContainer extends StatelessWidget {
             ),
             Text(
               text,
-              style: const TextStyle(
+              style:   const TextStyle(
                   color: Color(0xff8B8C9E),
                   fontSize: 20,
                   fontWeight: FontWeight.w400),

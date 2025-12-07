@@ -14,7 +14,7 @@ class HomeScreen extends StatefulWidget {
 bool isMale = true;
 
 class _HomeScreenState extends State<HomeScreen> {
-  double currentSliderValue = 50;
+  double currentSliderValue = 150;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -30,7 +30,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   GenderContainer(
                       onTap: () {
                         setState(() {
-                          isMale = !isMale;
+                          isMale = true;
                         });
                       },
                       icon: Icons.male,
@@ -40,7 +40,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   GenderContainer(
                     onTap: () {
                       setState(() {
-                        isMale = !isMale;
+                        isMale = false;
                       });
                     },
                     icon: Icons.female,
@@ -58,9 +58,9 @@ class _HomeScreenState extends State<HomeScreen> {
                 }),
             const SizedBox(height: 20),
             const Row(mainAxisAlignment: MainAxisAlignment.center, children: [
-              AgeAndWeightContainer(text: 'Weight', age: '60'),
+              AgeAndWeightContainer(text: 'Weight'),
               SizedBox(width: 12),
-              AgeAndWeightContainer(text: 'Weight', age: '60')
+              AgeAndWeightContainer(text: 'age')
             ]),
             const SizedBox(height: 15),
             const CalculateButton()

@@ -1,13 +1,18 @@
 import 'package:flutter/material.dart';
 
-class AgeAndWeightContainer extends StatelessWidget {
+class AgeAndWeightContainer extends StatefulWidget {
   const AgeAndWeightContainer({
     super.key,
     required this.text,
-    required this.age,
   });
   final String text;
-  final String age;
+  @override
+  State<AgeAndWeightContainer> createState() => _AgeAndWeightContainerState();
+}
+
+class _AgeAndWeightContainerState extends State<AgeAndWeightContainer> {
+  int theCounter = 70;
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -20,20 +25,21 @@ class AgeAndWeightContainer extends StatelessWidget {
       child: Column(
         children: [
           Text(
-            text,
+            widget.text,
             style: const TextStyle(
                 color: Color(0xff8B8C9E),
                 fontSize: 20,
                 fontWeight: FontWeight.w400),
           ),
           Text(
-            age,
+            theCounter.toString(),
             style: const TextStyle(
               color: Colors.white,
               fontSize: 40,
               fontWeight: FontWeight.w700,
             ),
           ),
+          const SizedBox(height: 20),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
@@ -42,7 +48,13 @@ class AgeAndWeightContainer extends StatelessWidget {
                   borderRadius: BorderRadius.circular(100),
                 ),
                 backgroundColor: const Color(0xff8B8C9E),
-                onPressed: () {},
+                onPressed: () {
+                  if (theCounter > 0) {
+                    setState(() {
+                      theCounter--;
+                    });
+                  }
+                },
                 child: const Icon(Icons.remove),
               ),
               FloatingActionButton(
@@ -50,7 +62,11 @@ class AgeAndWeightContainer extends StatelessWidget {
                   borderRadius: BorderRadius.circular(100),
                 ),
                 backgroundColor: const Color(0xff8B8C9E),
-                onPressed: () {},
+                onPressed: () {
+                  setState(() {
+                    theCounter++;
+                  });
+                },
                 child: const Icon(Icons.add),
               ),
             ],

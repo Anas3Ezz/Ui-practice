@@ -50,7 +50,12 @@ class HeightContainer extends StatelessWidget {
           ),
           const SizedBox(height: 10),
           Slider(
-              min: 50, value: value.toDouble(), max: 200, onChanged: onChanged),
+              activeColor: const Color(0xffE83D67),
+              inactiveColor: Colors.white,
+              min: 100,
+              value: value.toDouble(),
+              max: 200,
+              onChanged: onChanged),
         ],
       ),
     );
