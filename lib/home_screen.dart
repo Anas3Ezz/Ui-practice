@@ -111,7 +111,9 @@ class _HomeScreenState extends State<HomeScreen> {
                         ),
                       ));
                 },
-                child: const CalculateButton())
+                child: const CalculateButton(
+                  text: 'Calculate',
+                ))
           ],
         ),
       ),

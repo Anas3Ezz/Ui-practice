@@ -1,3 +1,4 @@
+import 'package:eraa_projects/widgets/calculate_button.dart';
 import 'package:flutter/material.dart';
 
 class ResultScreen extends StatelessWidget {
@@ -8,10 +9,11 @@ class ResultScreen extends StatelessWidget {
     return Scaffold(
       backgroundColor: const Color(0xFF24273A),
       appBar: AppBar(
+        automaticallyImplyLeading: false,
         title: const Text('Your Result',
             style: TextStyle(
               color: Colors.white,
-              fontSize: 25.0,
+              fontSize: 32.0,
               fontWeight: FontWeight.bold,
             )),
         backgroundColor: const Color(0xFF24273A),
@@ -67,20 +69,11 @@ class ResultScreen extends StatelessWidget {
                 ),
               ),
             ),
-            Container(
-              color: Colors.pink,
-              width: double.infinity,
-              height: 120.0,
-              alignment: Alignment.center,
-              child: const Text(
-                'Re - Calculate',
-                style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 25.0,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-            ),
+            InkWell(
+                onTap: () {
+                  Navigator.pop(context);
+                },
+                child: const CalculateButton(text: 'Re-Calculate'))
           ],
         ),
       ),
