@@ -39,8 +39,8 @@ class ResultScreen extends StatelessWidget {
                   children: [
                     Text(
                       bmiStatus(),
-                      style: const TextStyle(
-                        color: Colors.white,
+                      style: TextStyle(
+                        color: getBmiColor(),
                         fontSize: 22.0,
                         fontWeight: FontWeight.bold,
                       ),
@@ -101,6 +101,18 @@ class ResultScreen extends StatelessWidget {
       return 'You have a body weight higher than normal. You should consider starting an exercise routine.';
     } else {
       return 'You are in the obese range. This may increase your risk of health problems. Please consult a doctor.';
+    }
+  }
+
+  Color getBmiColor() {
+    if (bmiValue <= 18.4) {
+      return Colors.red;
+    } else if (bmiValue > 18.5 && bmiValue <= 24.9) {
+      return Colors.green;
+    } else if (bmiValue > 24.9 && bmiValue < 39.9) {
+      return Colors.orange;
+    } else {
+      return Colors.red;
     }
   }
 }
